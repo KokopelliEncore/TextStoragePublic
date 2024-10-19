@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text from URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        .text-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+    </style>
+    <script>
+        // Function to fetch the 'content' parameter from the URL
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Execute when the page is fully loaded
+        window.onload = function() {
+            // Get the 'content' from the query string
+            let content = getQueryParam('content');
+            if (content) {
+                // Display the decoded content in the text container
+                document.getElementById('dynamic-content').innerText = decodeURIComponent(content);
+            } else {
+                // Default text if no content is passed
+                document.getElementById('dynamic-content').innerText = "No text was provided via the URL. Try appending '?content=YourText' to the URL.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="text-container">
+        <h1>Dynamic Text from URL</h1>
+        <p id="dynamic-content">
+            <!-- The text passed through the URL will be shown here -->
+        </p>
+    </div>
+</body>
+</html>
