@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Text from URL</title>
+    <title>Text Storage Website</title>
+    <!-- Link to external CSS file if needed, or add inline styles -->
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f7f7f7;
+            background-color: #f0f0f0;
         }
         .text-container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: auto;
             padding: 20px;
             background-color: white;
-            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
@@ -23,37 +23,18 @@
             color: #333;
         }
         p {
-            font-size: 18px;
-            color: #444;
-            line-height: 1.6;
+            color: #555;
         }
     </style>
-    <script>
-        // Function to fetch the 'content' parameter from the URL
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Execute when the page is fully loaded
-        window.onload = function() {
-            // Get the 'content' from the query string
-            let content = getQueryParam('content');
-            if (content) {
-                // Display the decoded content in the text container
-                document.getElementById('dynamic-content').innerText = decodeURIComponent(content);
-            } else {
-                // Default text if no content is passed
-                document.getElementById('dynamic-content').innerText = "No text was provided via the URL. Try appending '?content=YourText' to the URL.";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="text-container">
-        <h1>Dynamic Text from URL</h1>
-        <p id="dynamic-content">
-            <!-- The text passed through the URL will be shown here -->
+        <h1>Stored Text</h1>
+        <p>
+            This is the place where you can store and display text. You can edit this section by changing the content inside this HTML file.
+        </p>
+        <p>
+            Add more text here to store additional content, notes, or any other information you want to save and display on the website.
         </p>
     </div>
 </body>
